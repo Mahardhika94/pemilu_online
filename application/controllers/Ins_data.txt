@@ -1,0 +1,28 @@
+<?php class Up_admin extends CI_Controller
+{
+function __construct(){
+parent::__construct();
+$this->load->helper('date');
+$this->load->database();
+$this->load->library('session');
+$this->load->library('pagination');
+$this->load->model('Model_update');
+$this->load->helper('url');
+header('Acces-Control-Allow-Origin: *');
+}
+
+function up_about($id){
+$about=$this->input->post('about');
+$val=array('ket'=>$about);
+$this->Model_update->up_about($val,$id);
+redirect('Admin/about');
+}
+
+function up_about(id){
+$nav=$this->input->post('nav');
+$val=array('navigasi'=>$about);
+$this->Model_update->up_about($val,$id);
+redirect('Admin/about');
+}
+
+}
